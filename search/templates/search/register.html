@@ -1,0 +1,47 @@
+{% extends 'search/base.html' %}
+
+{% block content %}
+{% if user.is_superuser or user.is_staff and user.is_authenticated %}
+<h2 class="text-center">Register</h2>
+
+<div class="col-md-6 offset-md-3">
+	<form method="POST" action="{% url 'register' %}">
+		{% csrf_token %}
+
+		{% if form.errors %}
+			<div class="alert alert-warning alert-dismissable" role="alert">
+            <button class="close" data-dismiss="alert">
+                    <small><sup>x</sup></small>
+                </button>
+            <p>Your Form Has Errors...</p>
+            {% for field in form %}
+            	{% if field.errors  %}
+            		{{ field.errors }}
+            	{% endif %}
+
+            {% endfor %}
+
+          </div>
+
+
+		{% endif %}
+		
+       
+			{{ form.as_p }}
+
+		<input type="submit" value="Register" class="btn btn-danger">
+	</form>
+</div>
+<br/><br/>
+{% else %}
+ 	<center><br/></br>
+ 	<div style="border:1px solid pink;padding:20px;font-size:20px">
+	<h1>Hello Engineer !!!</h1>
+	<h2>I am <b><i>SAM</i></b>. <br/>Your Personal Search Engine...!</h2>
+	<h3>I store all the documents and details that are required for you!!!<br/>You can login and search for required details!!!</h3>
+	<h5>If you are new engineer, Kindly raise to Admin for registering your Login details.</h5></div>
+	<!--<a href="{% url 'login' %}" class="btn btn-danger">Login</a></label> -->
+</center>
+{% endif %}
+{% endblock %}
+

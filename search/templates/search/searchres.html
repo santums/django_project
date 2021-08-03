@@ -1,0 +1,108 @@
+{% extends 'search/base.html' %}
+{% block content %}
+{% if user.is_authenticated %}
+	
+	<center>
+	<form action="{% url 'search_results' %}" method="get">
+	<div class="search-bar">
+		Unit : <select id = "unit" name = "unit">
+		<!--INDIA-->
+		<optgroup label="India">
+		<option value="unit1">Idea - India</option>
+  		<option value="unit1">BSNL - India</option>
+  		<option value="unit1">Airtel - India</option>
+  		<option value="unit1">Vodafone - India</option>
+  		<option value="unit1">NDC - India</option>
+  		</optgroup>
+  		<!--ASIA-->
+  		<optgroup label="Asia">
+  		<option value="unit1">Dialog - SL</option>
+  		<option value="unit1">UMOBILE - Malaysia</option>
+  		<option value="unit1">Banglalink-BD</option>
+  		<option value="unit1">Grameenphone-BD</option>
+  		<option value="unit1">ROBI-BD</option>
+  		<option value="unit1">VDF - Turkey</option>
+  		</optgroup>
+  		<!--Africa-->
+  		<optgroup label="Africa">
+  		<option value="unit1">ATL - Uganda</option>
+  		<option value="unit1">ATL - Rwanda</option>
+  		<option value="unit1">ATL - Burkinofaso</option>
+  		<option value="unit1">ATL - Nigeria</option>
+  		<option value="unit1">ATL - Zambia</option>
+  		<option value="unit1">ATL - Malawi</option>
+  		<option value="unit1">ATL - Ghana</option>
+  		<option value="unit1">ATL - Kenya</option>
+  		<option value="unit1">ATL - Tanzania</option>
+  		<option value="unit1">ATL - Niger</option>
+  		<option value="unit1">MTN - Liberia</option>
+  		<option value="unit1">MTN - Zambia</option>
+  		<option value="unit1">MTN - Rwanda</option>
+  		<option value="unit1">MTN - Guinea Bissau</option>
+  		<option value="unit1">MTN - Swaziland</option>
+  		<option value="unit1">Vodacom - Tanzania</option>
+  		<option value="unit1">Vodacom - LS</option>
+  		<option value="unit1">Vodacom - SA</option>
+  		<option value="unit1">Vodacom - MZ</option>
+  		<option value="unit1">Unitel - Angola</option>
+  		<option value="unit1">Telkom - Kenya</option>
+  		<option value="unit1">Glo - Nigeria</option>
+  		<option value="unit1">MTN - Afghanistan</option>
+  		</optgroup>
+  		<!--MEA-->
+  		<optgroup label="MEA">
+  		<option value="unit1">Du - Dubai</option>
+  		<option value="unit1">VDF - Egypt</option>
+  		<option value="unit1">VDF - Qatar</option>
+  		<option value="unit1">STC - Bahrain</option>
+  		<option value="unit1">Zain - Bahrain</option>
+  		<option value="unit1">Lebara - SA</option>
+  		</optgroup>
+  		<!--LATAM-->
+  		<optgroup label="LATAM">
+  		<option value="unit1">LATAM</option>
+  		<option value="unit1">Digicel - Haiti</option>
+  		<option value="unit1">OI - Brazil</option>
+  		</optgroup>
+  		<!--Europe-->
+  		<optgroup label="Europe">
+  		<option value="unit1">Orange - Spain</option>
+  		<option value="unit1">Telefonica - Spain</option>
+  		<option value="unit1">VDF - Spain</option>
+  		<option value="unit1">Diaus - Spain</option>
+  		<option value="unit1">Wind - Italy</option>
+  		<option value="unit1">Diaus - UK</option>
+  		<option value="unit1">VDF - Greece</option>
+  		</optgroup>
+  		<!--NAM-->
+  		<optgroup label="NAM">
+  		<option value="unit1">Livewire - US</option>
+  		<option value="unit1">Livewire - NAM</option>
+  		</optgroup>
+  		</select>
+  		App or Infra : <select id = "year" name = "year">
+		<option value="app">App</option>
+  		<option value="infra">Infra</option>
+  		<option value="nova">NOVA</option>
+  		</select>
+		
+		<a href="#" class="btn btn-primary">Search</a>
+		
+</div><br><br/>
+<br/></br/><h2> {{ user.first_name }} !!! your search is successful.... </h2><br/></br/>
+	<ul>
+	{% for esc_per in em_list %}
+	<li>
+	      {{ esc_per.unit }},{{ esc_per.app }},{{ esc_per.name1 }}, {{ esc_per.name2 }}, {{ esc_per.name3 }}, {{ esc_per.name4 }}
+	</li>
+	{% endfor %}
+	</ul>
+	
+	</center>
+	{% else %}
+ 	<center>
+	<h1>Kindly Login first!!!</h1>
+</center>
+{% endif %}
+	
+{% endblock %}
