@@ -25,7 +25,7 @@ SECRET_KEY = '59fz0c855v^dp3w6(es57+%v(k*yg*zyi#9ios&gsu_!!8!=py'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['18.191.99.68']
 
 
 # Application definition
@@ -123,9 +123,9 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'sam/search/static')
+    os.path.join(BASE_DIR, '/static/')
 ]
 
-MEDIA_ROOT = os.path.join(BASE_DIR, '/home/practise/sam/search/')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'MEDIA/')
 
-MEDIA_URL = '/media/'
+MEDIA_URL = 'MEDIA/'
